@@ -7,7 +7,7 @@ public class Payment {
     private String detail;
     private Money bedrag;
 
-    public Payment(LocalDateTime time, String detail, Money bedrag) {
+    Payment(LocalDateTime time, String detail, Money bedrag) {
         this.time = time;
         this.detail = detail;
         this.bedrag = bedrag;

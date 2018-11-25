@@ -2,7 +2,7 @@ package be.kdg.common;
 
 public class City {
     private String postalCode;
-    public String name;
+    private String name;
 
     public City(String postalCode, String name) {
         this.postalCode = postalCode;
