@@ -2,6 +2,7 @@ package be.kdg.person;
 
 import be.kdg.common.*;
 import be.kdg.order.Order;
+import be.kdg.ui.DeliDishApp;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class Courier extends Person {
 
     private List<Order> orders;
 
+    private DeliDishApp deliDishApp;
+
     public Courier(ContactInfo contactInfo, String firstName, String lastName, boolean isAvailable, Position currentPosition, Partner partner, List<DeliveryPointEvent> deliveryPointEvents, List<Order> orders) {
         super(contactInfo, firstName, lastName);
         this.isAvailable = isAvailable;
@@ -22,6 +25,11 @@ public class Courier extends Person {
         this.partner = partner;
         this.deliveryPointEvents = deliveryPointEvents;
         this.orders = orders;
+    }
+
+    public List<Order> getBeschikbareLeveringen(){
+
+        return orders;
     }
 
     //region getters en setters
