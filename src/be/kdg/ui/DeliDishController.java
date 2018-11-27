@@ -14,7 +14,7 @@ public class DeliDishController {
 
     public List<Order> geefBeschikbareLeveringen(){
 
-        //beschikbareLeveringen = getBeschikbareLeveringen();
+        beschikbareLeveringen = null;
 
         return beschikbareLeveringen;
     }

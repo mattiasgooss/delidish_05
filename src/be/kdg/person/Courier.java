@@ -27,7 +27,7 @@ public class Courier extends Person {
         this.orders = orders;
     }
 
-    public List<Order> getBeschikbareLeveringen(){
+    public List<Order> geefBeschikbareLeveringen(){
 
         return orders;
     }
