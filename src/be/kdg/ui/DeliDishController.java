@@ -5,7 +5,7 @@ import be.kdg.person.Courier;
 
 import java.util.List;
 
-public class DeliDishApp {
+public class DeliDishController {
     private String userId;
 
     private Courier courier;
