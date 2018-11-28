@@ -15,27 +15,16 @@ public class OrderController {
 
     private OrderLineManager orderLineManager;
 
-    private Position courierPosition;
+    private Position p2;
 
     private Courier courier;
 
     private List<Order> orders;
 
+    public List<Order> geefBeschikbareLeveringen(Courier courier){
+        p2 = courier.getCurrentPosition();
+        orders = orderManager.geefRecentGeplaatsteOrders(p2);
 
-    public Position getCourierPosition() {
-        courierPosition = courier.getCurrentPosition();
-        return courierPosition;
-    }
-
-    public List<Order> geefBeschikbareLeveringen(){
-        orders = orderManager.geefOrders();
-        for (Order order : orders) {
-            orderLineManager.geefOrderLines(order);
-        }
         return orders;
-    }
-
-    public double getDistance(){
-        return distanceCalculator.getDistance( , courierPosition);
     }
 }
