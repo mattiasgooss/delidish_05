@@ -6,12 +6,18 @@ import java.util.List;
 public class OrderManager {
     private List<Order> orders;
 
+    public OrderManager() {
+        this.orders = new ArrayList<>();
+    }
+
     public List<Order> geefOrders() {
-        orders = new ArrayList<>();
+        ArrayList<Order> orderArrayList = new ArrayList<>();
         for (Order order : orders) {
-            order.getOrderStateEvents()
-                    .forEach(orderStateEvent -> orderStateEvent.getState() == OrderState.ORDER_PLACED);
+            int size = order.getOrderStateEvents().size();
+            OrderState os = order.getOrderStateEvents().get(0).getState();
+            if(size == 1 && os.equals("ORDER_PLACED"))
+                orderArrayList.add(order);
         }
-        return orders;
+        return orderArrayList;
     }
 }

@@ -14,6 +14,8 @@ public class Order {
     private String deliveryInstructions;
     private int averageDeliveryPoints;
 
+    private List<OrderLine> orderLines;
+
     private List<OrderStateEvent> orderStateEvents;
 
     private Customer customer;
@@ -24,11 +26,12 @@ public class Order {
 
     private DirectPayment directPayment;
 
-    public Order(int orderId, Address deliveryAddress, String deliveryInstructions, int averageDeliveryPoints, List<OrderStateEvent> orderStateEvents, Customer customer, Courier courier, TransferPayment transferPayment, DirectPayment directPayment) {
+    public Order(int orderId, Address deliveryAddress, String deliveryInstructions, int averageDeliveryPoints, List<OrderLine> orderLines, List<OrderStateEvent> orderStateEvents, Customer customer, Courier courier, TransferPayment transferPayment, DirectPayment directPayment) {
         this.orderId = orderId;
         this.deliveryAddress = deliveryAddress;
         this.deliveryInstructions = deliveryInstructions;
         this.averageDeliveryPoints = averageDeliveryPoints;
+        this.orderLines = orderLines;
         this.orderStateEvents = orderStateEvents;
         this.customer = customer;
         this.courier = courier;
@@ -68,6 +71,14 @@ public class Order {
 
     public void setAverageDeliveryPoints(int averageDeliveryPoints) {
         this.averageDeliveryPoints = averageDeliveryPoints;
+    }
+
+    public List<OrderLine> getOrderLines() {
+        return orderLines;
+    }
+
+    public void setOrderLines(List<OrderLine> orderLines) {
+        this.orderLines = orderLines;
     }
 
     public List<OrderStateEvent> getOrderStateEvents() {

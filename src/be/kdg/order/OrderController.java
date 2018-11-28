@@ -3,7 +3,6 @@ package be.kdg.order;
 import be.kdg.common.Position;
 import be.kdg.distanceAPI.DistanceCalculator;
 import be.kdg.person.Courier;
-import be.kdg.restaurant.RestaurantManager;
 
 import java.util.List;
 
@@ -14,26 +13,29 @@ public class OrderController {
 
     private OrderManager orderManager;
 
+    private OrderLineManager orderLineManager;
+
     private Position courierPosition;
 
     private Courier courier;
 
     private List<Order> orders;
 
-    private RestaurantManager restaurantManager;
 
     public Position getCourierPosition() {
         courierPosition = courier.getCurrentPosition();
         return courierPosition;
     }
 
-    public List<Order> geefBeschikbareOrders(){
+    public List<Order> geefBeschikbareLeveringen(){
+        orders = orderManager.geefOrders();
+        for (Order order : orders) {
+            orderLineManager.geefOrderLines(order);
+        }
         return orders;
     }
 
     public double getDistance(){
-        restaurantManager = new RestaurantManager();
-        restaurantManager.
-        return distanceCalculator.getDistance(courierPosition,);
+        return distanceCalculator.getDistance( , courierPosition);
     }
 }
