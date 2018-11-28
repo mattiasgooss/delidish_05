@@ -19,12 +19,12 @@ public class OrderController {
 
     private Courier courier;
 
-    private List<Order> orders;
+    private List<Order> geplaatsteOrders;
 
     public List<Order> geefBeschikbareLeveringen(Courier courier){
         p2 = courier.getCurrentPosition();
-        orders = orderManager.geefRecentGeplaatsteOrders(p2);
+        geplaatsteOrders = orderManager.geefRecentGeplaatsteOrders(p2);
 
-        return orders;
+        return geplaatsteOrders;
     }
 }

@@ -8,25 +8,24 @@ import java.util.Collection;
 import java.util.List;
 
 public class OrderManager {
-    private List<Order> orders;
+    private List<Order> geplaatsteOrders;
 
     private OrderLineManager orderLineManager;
 
     private DistanceCalculator distanceCalculator;
 
     public OrderManager() {
-        this.orders = new ArrayList<>();
+        this.geplaatsteOrders = new ArrayList<>();
     }
 
     private Collection<Order> recenteOrders;
 
-    private List<Order> geplaatsteOrders;
-
-
     public List<Order> geefRecentGeplaatsteOrders(Position p){
-        for (Order order : orders) {
+        for (Order order : geplaatsteOrders) {
             OrderLine ol = orderLineManager.geefOrderLines(order);
+
+
         }
-        return orders;
+        return geplaatsteOrders;
     }
 }

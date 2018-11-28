@@ -23,6 +23,7 @@ public class OrderLineManager {
         Dish d = ol.getDish();
         Restaurant r = restaurantManager.geefRestaurant(d);
         Position p1 = r.getContactInfo().getAddress().getPosition();
+        return null;
     }
 
     public OrderLine geefOrderLines(Order order){
