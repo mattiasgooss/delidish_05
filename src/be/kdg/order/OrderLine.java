@@ -1,6 +1,8 @@
 package be.kdg.order;
 
+import be.kdg.common.Position;
 import be.kdg.restaurant.Dish;
+import be.kdg.restaurant.Restaurant;
 
 public class OrderLine {
     private int quantity;
@@ -50,6 +52,8 @@ public class OrderLine {
     public void setDish(Dish dish) {
         this.dish = dish;
     }
+
+
 
     //endregion
 }

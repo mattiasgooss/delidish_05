@@ -1,10 +1,6 @@
 package be.kdg.order;
 
-import be.kdg.common.Position;
-import be.kdg.distanceAPI.DistanceCalculator;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class OrderManager {
@@ -12,20 +8,27 @@ public class OrderManager {
 
     private OrderLineManager orderLineManager;
 
-    private DistanceCalculator distanceCalculator;
-
-    public OrderManager() {
-        this.geplaatsteOrders = new ArrayList<>();
+    public OrderManager(List<Order> geplaatsteOrders) {
+        this.geplaatsteOrders = geplaatsteOrders;
     }
 
-    private Collection<Order> recenteOrders;
+    private List<Order> recenteOrders;
 
-    public List<Order> geefRecentGeplaatsteOrders(Position p){
+    public List<Order> geefRecentGeplaatsteOrders(){
+
+        // geeft de maximum productiontime van de geplaatste orders
         for (Order order : geplaatsteOrders) {
-            OrderLine ol = orderLineManager.geefOrderLines(order);
-
-
+            int mpt = orderLineManager.geefMaxProductionTime(order);
         }
-        return geplaatsteOrders;
+
+        recenteOrders = new ArrayList<>();
+        recenteOrders.addAll(geplaatsteOrders);
+        return recenteOrders;
     }
+
+    public Order geefOrder(int i){
+        return geplaatsteOrders.get(i);
+    }
+
+
 }
